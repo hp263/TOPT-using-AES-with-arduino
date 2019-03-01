@@ -1,4 +1,4 @@
-Time-based One-time password is to generate random passwords using time-based algorithm, such as Google authentication, 网易将军令, and etc.
+Time-based One-time password is to generate random passwords using a time-based algorithm, such as Google authentication, 网易将军令, and etc.
 For my prototype, each device has a unique serial number, which we need to enroll it first to connect to our account.
 The device will generate a random 6-digit code every minute, and the code only valid during that minute.
 After entering your correct account and password, you need to enter the second password from the device.
@@ -11,7 +11,7 @@ I am using Advanced Encrypt Standard (AES) algorithm to implement the TOPT, sinc
 The serial number is a 16-byte sequence which is the key for AES in my algorithm, and the current time is the plaintext in AES.
 
 For Arduino, I used DS 3231 high precise clock and LCD screen 1602 to display the code. It will read the current time from DS 3231 and 
-then use AES to do the encryption. Since I am using AES 128, so I just pick some fixed position of bytes from cipher text and
+then use AES to do the encryption. Since I am using AES 128, so I just pick some fixed position of bytes from ciphertext and
 only take one digit from each byte.
 
 In the screen, the first line is Hour:Minute:Second  Month Day Year 
